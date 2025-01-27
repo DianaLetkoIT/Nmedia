@@ -2,4 +2,8 @@
 <resources>
     <string name="app_name">Нмедиа</string>
     <string name="nmedia">НМедиа!</string>
+    <string name="like">Лайк</string>
+    <string name="repost">Репост</string>
+    <string name="vieving">Просмотр</string>
+    <string name="menu">Меню</string>
 </resources>

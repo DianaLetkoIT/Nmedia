@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Nmedia</string>
     <string name="nmedia">Nmedia!</string>
+    <string name="like">Like</string>
+    <string name="repost">Repost</string>
+    <string name="vieving">Viewing</string>
+    <string name="menu">Menu</string>
 </resources>

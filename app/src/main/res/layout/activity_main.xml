@@ -4,15 +4,145 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="@dimen/common_spacing"
     tools:context=".MainActivity">
 
-    <TextView
+    <!--<TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/nmedia"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" /> -->
+
+    <ImageView
+        android:id="@+id/avatar"
+        android:layout_width="@dimen/avatar_size"
+        android:layout_height="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_netology_foreground" />
+
+    <TextView
+        android:id="@id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="Нетология. Университет интернет-профессий будущего"
+        app:layout_constraintBottom_toTopOf="@id/published"
+        app:layout_constraintEnd_toStartOf="@id/menu"
+        app:layout_constraintStart_toEndOf="@+id/avatar"
+        app:layout_constraintTop_toTopOf="@+id/avatar" />
+
+    <TextView
+        android:id="@+id/published"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="21 мая в 18:36"
+        app:layout_constraintBottom_toBottomOf="@+id/avatar"
+        app:layout_constraintEnd_toStartOf="@id/menu"
+        app:layout_constraintStart_toEndOf="@+id/avatar"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+    <ImageButton
+        android:id="@+id/menu"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="@string/menu"
+        android:background="?selectableItemBackground"
+        android:src="@drawable/baseline_more_vert_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="?colorControlNormal" />
+
+    <ImageButton
+        android:id="@+id/likes"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?selectableItemBackground"
+        android:contentDescription="@string/like"
+        android:src="@drawable/baseline_favorite_border_24"
+        app:layout_constraintTop_toBottomOf="@id/content_barrier"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tint="?colorControlNormal"
+        />
+
+    <TextView
+        android:id="@+id/amount_of_likes"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:text="10"
+        app:layout_constraintStart_toEndOf="@id/likes"
+        app:layout_constraintTop_toBottomOf="@id/content_barrier"
+        app:layout_constraintBottom_toBottomOf="@id/likes"/>
+
+    <ImageButton
+        android:id="@+id/reposts"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?selectableItemBackground"
+        android:contentDescription="@string/repost"
+        android:src="@drawable/baseline_share_24"
+        app:layout_constraintTop_toBottomOf="@id/content_barrier"
+        app:layout_constraintStart_toEndOf="@id/amount_of_likes"
+        app:tint="?colorControlNormal"
+        />
+
+    <TextView
+        android:id="@+id/amount_of_reposts"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:text="10"
+        app:layout_constraintStart_toEndOf="@id/reposts"
+        app:layout_constraintTop_toBottomOf="@id/content_barrier"
+        app:layout_constraintBottom_toBottomOf="@id/likes"/>
+
+    <ImageButton
+        android:id="@+id/viewing"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="@string/vieving"
+        android:background="?selectableItemBackground"
+        android:src="@drawable/baseline_visibility_24"
+        app:layout_constraintTop_toBottomOf="@id/content_barrier"
+        app:layout_constraintEnd_toStartOf="@id/amount_of_viewing"
+        app:tint="?colorControlNormal"
+        />
+
+    <TextView
+        android:id="@+id/amount_of_viewing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/content_barrier"
+        app:layout_constraintBottom_toBottomOf="@id/likes"/>
+    
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/header_barrier"
+        app:barrierDirection="bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="avatar,published,menu"/>
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/content_barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="content"
+        app:barrierDirection="bottom"
+        />
+
+    <TextView
+        android:id="@+id/content"
+        android:autoLink="all"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Привет, это новая Нетология! Когда-то Нетология начиналась с интенсивов по онлайн-маркетингу. Затем появились курсы по дизайну, разработке, аналитике и управлению. Мы растём сами и помогаем расти студентам до уверенных профессионалов. Но самое важное остаётся с нами: мы верим, что в каждом уже есть сила, которая заставляет хотеть больше, целиться выше, бежать быстрее. Наша миссия - помочь встать на путь роста и начать цепочку перемен ➝ https://netolo.gy/fyb"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_barrier"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteX="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
